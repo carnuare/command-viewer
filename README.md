@@ -1,71 +1,70 @@
-# cmdvwr README
+# Custom Commands Viewer for VS Code
+## Overview
+The "Custom Commands Viewer" is a VS Code extension designed to manage and execute frequently used shell commands directly within the editor's familiar Explorer view.
 
-This is the README for your extension "cmdvwr". After writing up a brief description, we recommend including the following sections.
+This extension treats your custom commands like virtual files, enabling intuitive interactions such as opening them in an editor for quick modifications, renaming them, and even duplicating them directly from the Explorer's context menu.
 
 ## Features
+- **Explorer Integration**: Manage your commands within a dedicated view in the VS Code Activity Bar, just like managing files in your project.
+- **Intuitive Command Creation**: Add new commands by entering the shell command content and optionally providing a friendly display name. Commands without a name will intelligently display their shell command content.
+- **Direct Editing**: Click on a command in the tree view to open it in a temporary editor. Modify the command content directly and save your changes for instant updates.
+- **Rename & Delete**: Leverage VS Code's native Explorer functionalities to rename or delete your custom commands directly from the tree view's context menu.
+- **Duplicate Commands**: Quickly create copies of existing commands, allowing for easy variation and iteration without starting from scratch.
+- **Execute from Editor**: Run any command directly from its context menu in the Explorer view.
+- **Import/Export Commands**: Share your command collections with teammates or back them up by exporting them to a JSON file. Easily import command lists from JSON files, with built-in duplicate detection.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## How to Use
+1. **Access the View**: After installation, a new icon (shaped like a terminal) will appear in your VS Code Activity Bar on the left. Click it to open the "Custom Commands" view.
 
-For example if there is an image subfolder under your extension project workspace:
+2. **Create a New Command**:
+Click the "Create New Command" icon (a plus sign or new file icon) in the title bar of the "Custom Commands" view.
+First, you'll be prompted to enter the shell command you want to save (e.g., git status, npm run dev, echo Hello World).
+Next, you'll have the option to provide a display name for your command (e.g., "Git Status", "Start Dev Server"). If you leave this empty, the command itself will be used as the label in the list.
 
-\!\[feature X\]\(images/feature-x.png\)
+3. **Edit a Command**:
+Simply click on any command in the "Custom Commands" view.
+It will open in a new editor tab. Make your changes to the shell command content.
+Save the file (Ctrl+S / Cmd+S) to apply your modifications.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+4. **Run a Command**:
 
-## Requirements
+Right-click on any command in the "Custom Commands" view.
+Select "Run Command" from the context menu. A confirmation prompt will appear before execution in the integrated terminal.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+5. **Rename a Command**:
 
-## Extension Settings
+Right-click on the command you wish to rename.
+Select "Rename" from the context menu.
+Enter the new filename (e.g., New Name.cmd). The part before .cmd will become the new display name for the command.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+6. **Duplicate a Command**:
+Right-click on the command you want to duplicate.
+Select "Duplicate Command" from the context menu.
+You'll be prompted to enter a new name for the duplicated command.
 
-For example:
+7. **Delete a Command**:
+Right-click on the command you want to remove.
+Select "Delete" from the context menu. Confirm the deletion when prompted.
 
-This extension contributes the following settings:
+8. **Import/Export Commands**:
+Look for the "Export Commands (JSON)" (cloud-download icon) and "Import Commands (JSON)" (cloud-upload icon) buttons in the title bar of the "Custom Commands" view. Exporting will save all your current commands to a specified JSON file.
+Importing will read commands from a selected JSON file and add new ones to your list, intelligently skipping any exact duplicates.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Installation
+This extension is not yet available on the VS Code Marketplace. You can install it locally from a VSIX package:
 
-## Known Issues
+### Package the extension:
+- Ensure you have vsce installed globally: npm install -g vsce
+- Navigate to your extension's root directory in your terminal.
+- Run vsce package to create the .vsix file (e.g., commands-viewer-0.0.1.vsix).
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### Install from VSIX:
+- Open VS Code.
+- Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X).
+- Click on the ... (More Actions) menu in the top right of the Extensions view.
+- Select "Install from VSIX...".
+- Browse to and select the .vsix file you just created.
+- Reload VS Code if prompted.
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## Contributing
+We welcome contributions! If you have suggestions for improvements, feature requests, or encounter any issues, please feel free to open an issue or submit a pull request on the GitHub repository.
